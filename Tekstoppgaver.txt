@@ -1,0 +1,210 @@
+
+
+Oppgave 2a:
+
+
+Input: En Node x
+Output: None
+
+Procedure push_front(x):
+
+    if size = 0:
+        first <-- x
+        middle <-- first
+        last <-- first
+    
+    if size = 1:
+        first = x
+        first.next = last
+        last.prev = first
+        middle = last
+    
+    else:
+    first.prev = x
+    x.next = first
+    first = x
+
+
+    left += 1
+    if left - right > 1:
+        middle = middle.prev
+
+        left -= 1
+        right += 1
+    
+    size += 1
+    
+
+
+Input: En Node x
+Output: None
+
+Procedure push_middle(x):
+
+    if size = 0:
+        first <-- x
+        middle <-- first
+        last <-- first
+    
+    if size = 1:
+        last = x
+        first.next = last
+        last.prev = first
+        middle = last
+    
+    if size = 2:
+        first.next = x
+        last.prev = x
+        x.next = last
+        x.prev = first
+        middle = x
+
+    else:
+        if left = right:
+            x.next = middle.next
+            middle.next.prev = x
+            middle.next = x
+            x.prev = middle
+            middle = x
+            left += 1
+        
+        else:
+            middle.prev.next = x
+            x.prev = middle.prev
+
+            middle.prev = x
+            x.next = middle
+            middle = x
+            right += 1
+    size += 1
+
+
+Input: En Node x
+Output: None
+
+Procedure push_back(x):
+    
+    if size = 0:
+        first <-- x
+        middle <-- first
+        last <-- first
+    
+    if size = 1:
+        last = x
+        first.next = last
+        last.prev = first
+        middle = last
+    
+    else:
+        last.next = x
+        x.prev = last
+        last = x
+
+        right += 1
+        if right > left:
+            middle = middle.next
+            left += 1
+            right -= 1
+    size += 1
+
+
+Input: En index v
+Output: En Node x
+
+Procedure get(v):
+    cur = first
+    if v > size:
+        return None:
+
+    for i <-- v-1 do
+        cur = cur.next
+    
+    return cur.data
+        
+
+
+2c)
+
+O-notasjon
+    push_back(x) = O(1) kjøretidskompleksitet
+    Dette er fordi vi ikke itererer gjennom listen på noe sett.
+    Vi setter siste til å peke på den nye Noden, og gjør den til siste Noden
+
+    push_front(x) = O(1) kjøretidskompleksitet 
+    Dette er fordi vi ikke itererer gjennom listen. 
+    Vi setter den første sin forrige til å være nye Noden, og gjør den til nye første
+
+    push_middle(x) = O(1) kjøretidskompleksitet
+    Samme grunn som de over. 
+
+    get(i) = O(10^6) kjøretidskompleksitet
+    Her itererer vi gjennom listen til vi finner riktig indeks og returnerer verdien 
+
+
+
+2d)
+Endring i n
+
+for push_back, push_front og push_middle vil dette ikke ha noe å si,
+fordi operasjonene har konstant kjøretidskompleksitet
+
+for get vil kjøretidskompleksiteten bli O(n). Endringen vil være
+at worst case kjøretid ikke er 10^6, men N som er et vilkårlig tall
+
+
+
+3a)
+
+Input: Vi tar in v = posisjonen til katten og x som er en array med linjene til filen.
+Output: Skriver ut ruten til katten.
+
+Procedure finnVei(v, x):
+    path.append(v)
+    for i <-- x do:
+        for e <-- i do:
+            if e = v and e != i[0]:
+                finnVei(i[0], x)
+    return
+
+
+4a)
+
+Input: Tar inn en liste 
+Output: Skriver ut tall i rekkefølge til et binært søketre
+
+Procedure balance(v):
+    if lenght(v) is 0 do
+        return
+
+    mid = math.floor(length(v)/2)
+
+    print(v[mid])
+
+    balance(liste[v + 1:])
+    balane(liste[:mid])
+
+    
+4b)
+
+Input: Tar inn en heap v med heltall 
+Output: Skriver ut tall i rekkefølge til et binært søketre
+
+Procedure balance(v):
+    if length(v) is 0 do
+        return
+    mid = math.floor(length(v)/2)
+
+
+    h = []
+    heapq.heapify(h)
+
+    for i in range(mid) do
+        heapq.heappush(h, heapq-heappop(v))
+
+    print(heapq.heappop(v))
+    balance(v)
+    balance(h)
+
+
+4c)
+
