@@ -1,3 +1,5 @@
+Oppgave 3C
+
 O-notasjon
     push_back(x) = O(1) kjøretidskompleksitet
     Dette er fordi vi ikke itererer gjennom listen på noe sett.
