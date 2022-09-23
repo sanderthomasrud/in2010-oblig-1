@@ -1,7 +1,9 @@
+Oppgave 3D
+
 Endring i n
 
 for push_back, push_front og push_middle vil dette ikke ha noe å si,
-fordi operasjonene har konstant kjøretidskompleksitet
+fordi operasjonene har konstant kjøretidskompleksitet O(1)
 
 for get vil kjøretidskompleksiteten bli O(n). Endringen vil være
 at worst case kjøretid ikke er 10^6, men N som er et vilkårlig tall
