@@ -1,0 +1,15 @@
+O-notasjon
+    push_back(x) = O(1) kjøretidskompleksitet
+    Dette er fordi vi ikke itererer gjennom listen på noe sett.
+    Vi setter siste til å peke på den nye Noden, og gjør den til siste Noden
+
+    push_front(x) = O(1) kjøretidskompleksitet 
+    Dette er fordi vi ikke itererer gjennom listen. 
+    Vi setter den første sin forrige til å være nye Noden, og gjør den til nye første
+
+    push_middle(x) = O(1) kjøretidskompleksitet
+    Samme grunn som de over. 
+
+    get(i) = O(10^6) kjøretidskompleksitet
+    Her itererer vi gjennom listen til vi finner riktig indeks og returnerer verdien 
+
